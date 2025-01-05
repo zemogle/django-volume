@@ -79,14 +79,20 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+os.environ.setdefault("PGDATABASE", "railway")
+os.environ.setdefault("PGUSER", "postgres")
+os.environ.setdefault("PGPASSWORD", "ZJNnPpMnGlGcKAEwsPzYRskqWIXYJDqk")
+os.environ.setdefault("PGHOST", "roundhouse.proxy.rlwy.net")
+os.environ.setdefault("PGPORT", "16510")
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': os.environ["PGDATABASE"],
         'USER': os.environ["PGUSER"],
         'PASSWORD': os.environ["PGPASSWORD"],
-        'HOST': os.environ["PGHOST"],
-        'PORT': os.environ["PGPORT"],
+        'HOST': "roundhouse.proxy.rlwy.net", #os.environ["PGHOST"],
+        'PORT': "16510", #os.environ["PGPORT"],
     }
 }
 
